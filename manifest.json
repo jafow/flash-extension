@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "flash-detector-extension",
+  "version": "0.0.2",
+
+  "description": "take over a users flash settings and display",
+  "icons": {
+    "128": "image.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.abcmouse.com/*", "https://www.abcmouse.cn/*"],
+      "css": ["content-styles.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_icon": "image.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "contentSettings",
+    "http://www.abcmouse.com/*",
+    "http://www.abcmouse.cn/*"
+  ]
+}
+
